@@ -1,0 +1,43 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: ztp-spoke-01
+  namespace: ztp-spoke-01
+  labels:
+    cluster-name: ztp-spoke-01
+spec:
+  interfaces:
+    - name: enp1s0
+      macAddress: 52:54:00:f4:16:21
+  config:
+    interfaces:
+      - name: enp1s0
+        type: ethernet
+        mtu: 9000
+        state: up
+      - name: enp1s0.132
+        type: vlan
+        state: up
+        vlan:
+          base-iface: enp1s0
+          id: 132
+        ipv4:
+          enabled: true
+          dhcp: false
+          address:
+            - ip: 192.168.132.21
+              prefix-length: 24
+        ipv6:
+          enabled: false
+    dns-resolver:
+      config:
+        search:
+          - lab.local
+        server:
+          - 192.168.1.68
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.132.1
+          next-hop-interface: enp1s0.132
+          table-id: 254

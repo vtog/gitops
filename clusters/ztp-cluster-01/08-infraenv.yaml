@@ -1,0 +1,22 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  name: ztp-spoke-01
+  namespace: ztp-spoke-01
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=false
+spec:
+  additionalNTPSources:
+    - 192.168.1.68
+  clusterRef:
+    name: ztp-spoke-01
+    namespace: ztp-spoke-01
+  sshAuthorizedKey: '<redacted>'
+  agentLabelSelector:
+    matchLabels:
+      cluster-name: ztp-spoke-01
+  pullSecretRef:
+    name: pull-secret
+  nmStateConfigLabelSelector:
+    matchLabels:
+      cluster-name: ztp-spoke-01

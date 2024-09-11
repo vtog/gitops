@@ -1,0 +1,30 @@
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  labels:
+    channel: stable
+    visible: 'true'
+  name: img4.14.35-x86-64-appsub
+spec:
+  releaseImage: mirror.lab.local:8443/openshift/release-images:4.14.35-x86_64
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  labels:
+    channel: stable
+    visible: 'true'
+  name: img4.15.28-x86-64-appsub
+spec:
+  releaseImage: mirror.lab.local:8443/openshift/release-images:4.15.28-x86_64
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  labels:
+    channel: stable
+    visible: 'true'
+  name: img4.16.8-x86-64-appsub
+spec:
+  releaseImage: mirror.lab.local:8443/openshift/release-images:4.16.8-x86_64

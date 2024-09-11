@@ -1,0 +1,23 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: ztp-spoke-01
+  namespace: ztp-spoke-01
+spec:
+  baseDomain: lab.local
+  clusterName: ztp-spoke-01
+  controlPlaneConfig:
+    servingCertificates: {}
+  installed: false
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: ztp-spoke-01
+    version: v1beta1
+  platform:
+    agentBareMetal:
+      agentSelector:
+        matchLabels:
+          cluster-name: "ztp-spoke-01"
+  pullSecretRef:
+    name: pull-secret
