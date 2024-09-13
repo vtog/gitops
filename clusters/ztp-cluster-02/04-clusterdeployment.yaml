@@ -1,0 +1,28 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: ztp-spoke-02
+  namespace: ztp-spoke-02
+  labels:
+    cluster.open-cluster-management.io/clusterset: default
+    hive.openshift.io/cluster-platform: agent-baremetal
+  annotations:
+    agentBareMetal-cpuArchitecture: x86_64
+    agentclusterinstalls.extensions.hive.openshift.io/location: lab
+spec:
+  baseDomain: lab.local
+  clusterName: ztp-spoke-02
+  controlPlaneConfig:
+    servingCertificates: {}
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: ztp-spoke-02
+    version: v1beta1
+  platform:
+    agentBareMetal:
+      agentSelector:
+        matchLabels:
+          cluster-name: "ztp-spoke-02"
+  pullSecretRef:
+    name: pull-secret

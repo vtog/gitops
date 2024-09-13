@@ -1,20 +1,18 @@
 apiVersion: extensions.hive.openshift.io/v1beta1
 kind: AgentClusterInstall
 metadata:
-  annotations:
-    agent-install.openshift.io/install-config-overrides: '{"networking":{"networkType":"OVNKubernetes"}}'
-    argocd.argoproj.io/sync-wave: '1'
-    ran.openshift.io/ztp-gitops-generated: '{}'
   labels:
-    app.kubernetes.io/instance: clusters
-  name: ztp-spoke-01
-  namespace: ztp-spoke-01
+    cluster-name: ztp-spoke-02
+  name: ztp-spoke-02
+  namespace: ztp-spoke-02
 spec:
   clusterDeploymentRef:
-    name: ztp-spoke-01
+    name: ztp-spoke-02
   imageSetRef:
     name: img4.16.8-x86-64-appsub
   networking:
+    networkType: OVNKubernetes
+    userManagedNetworking: true
     clusterNetwork:
       - cidr: 10.128.0.0/14
         hostPrefix: 23
@@ -25,4 +23,4 @@ spec:
   provisionRequirements:
     controlPlaneAgents: 1
     workerAgents: 0
-  sshPublicKey: <redacted>
+  sshPublicKey: <redactec>

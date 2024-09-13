@@ -1,0 +1,22 @@
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "ztp-spoke-02"
+  labels:
+    infraenvs.agent-install.openshift.io: "ztp-spoke-02"
+  name: ztp-spoke-02
+  namespace: ztp-spoke-02
+spec:
+  online: true
+  automatedCleaningMode: metadata
+  bootMACAddress: '52:54:00:f4:16:22'
+  customDeploy:
+    method: start_assisted_install
+  rootDeviceHints:
+    deviceName: /dev/vda
+  bmc:
+    address: redfish-virtualmedia+http://192.168.1.72:8000/redfish/v1/Systems/35b6963a-ec75-4018-86f2-bf846c1b8ab7
+    credentialsName: bmc-secret
+    disableCertificateVerification: true

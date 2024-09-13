@@ -1,0 +1,30 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  name: ztp-spoke-02
+  namespace: ztp-spoke-02
+  labels:
+    agentclusterinstalls.extensions.hive.openshift.io/location: lab
+    networkType: static
+  annotations:
+    infraenv.agent-install.openshift.io/enable-ironic-agent: "true"
+    argocd.argoproj.io/sync-options: Validate=false
+spec:
+  additionalNTPSources:
+    - 192.168.1.68
+  agentLabels:
+    agentclusterinstalls.extensions.hive.openshift.io/location: lab
+  cpuArchitecture: x86_64
+  ipxeScriptType: DiscoveryImageAlways
+  nmStateConfigLabelSelector:
+    matchLabels:
+      infraenvs.agent-install.openshift.io: ztp-spoke-02
+  pullSecretRef:
+    name: pull-secret
+  sshAuthorizedKey: '<redacted>'
+  clusterRef:
+    name: ztp-spoke-02
+    namespace: ztp-spoke-02
+  agentLabelSelector:
+    matchLabels:
+      cluster-name: ztp-spoke-02
