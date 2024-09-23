@@ -2,12 +2,12 @@ apiVersion: extensions.hive.openshift.io/v1beta1
 kind: AgentClusterInstall
 metadata:
   labels:
-    cluster-name: ztp-spoke-02
-  name: ztp-spoke-02
-  namespace: ztp-spoke-02
+    cluster-name: ztp-cluster-02
+  name: ztp-cluster-02
+  namespace: ztp-cluster-02
 spec:
   clusterDeploymentRef:
-    name: ztp-spoke-02
+    name: ztp-cluster-02
   imageSetRef:
     name: img4.16.8-x86-64-appsub
   networking:

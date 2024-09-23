@@ -3,11 +3,11 @@ kind: BareMetalHost
 metadata:
   annotations:
     inspect.metal3.io: disabled
-    bmac.agent-install.openshift.io/hostname: "ztp-spoke-02"
+    bmac.agent-install.openshift.io/hostname: "ztp-cluster-02"
   labels:
-    infraenvs.agent-install.openshift.io: "ztp-spoke-02"
-  name: ztp-spoke-02
-  namespace: ztp-spoke-02
+    infraenvs.agent-install.openshift.io: "ztp-cluster-02"
+  name: ztp-cluster-02
+  namespace: ztp-cluster-02
 spec:
   online: true
   automatedCleaningMode: metadata

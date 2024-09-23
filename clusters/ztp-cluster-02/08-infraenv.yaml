@@ -1,8 +1,8 @@
 apiVersion: agent-install.openshift.io/v1beta1
 kind: InfraEnv
 metadata:
-  name: ztp-spoke-02
-  namespace: ztp-spoke-02
+  name: ztp-cluster-02
+  namespace: ztp-cluster-02
   labels:
     agentclusterinstalls.extensions.hive.openshift.io/location: lab
     networkType: static
@@ -18,13 +18,13 @@ spec:
   ipxeScriptType: DiscoveryImageAlways
   nmStateConfigLabelSelector:
     matchLabels:
-      infraenvs.agent-install.openshift.io: ztp-spoke-02
+      infraenvs.agent-install.openshift.io: ztp-cluster-02
   pullSecretRef:
     name: pull-secret
   sshAuthorizedKey: '<redacted>'
   clusterRef:
-    name: ztp-spoke-02
-    namespace: ztp-spoke-02
+    name: ztp-cluster-02
+    namespace: ztp-cluster-02
   agentLabelSelector:
     matchLabels:
-      cluster-name: ztp-spoke-02
+      cluster-name: ztp-cluster-02

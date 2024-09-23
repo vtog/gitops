@@ -1,11 +1,11 @@
 apiVersion: agent-install.openshift.io/v1beta1
 kind: NMStateConfig
 metadata:
-  name: ztp-spoke-02
-  namespace: ztp-spoke-02
+  name: ztp-cluster-02
+  namespace: ztp-cluster-02
   labels:
-    agent-install.openshift.io/bmh: ztp-spoke-02
-    infraenvs.agent-install.openshift.io: ztp-spoke-02
+    agent-install.openshift.io/bmh: ztp-cluster-02
+    infraenvs.agent-install.openshift.io: ztp-cluster-02
 spec:
   interfaces:
     - name: enp1s0

@@ -1,8 +1,8 @@
 apiVersion: agent.open-cluster-management.io/v1
 kind: KlusterletAddonConfig
 metadata:
-  name: ztp-spoke-02
-  namespace: ztp-spoke-02
+  name: ztp-cluster-02
+  namespace: ztp-cluster-02
 spec:
   applicationManager:
     argocdCluster: false
@@ -10,11 +10,11 @@ spec:
   certPolicyController:
     enabled: true
   clusterLabels:
-    name: ztp-spoke-02
+    name: ztp-cluster-02
     cloud: Baremetal
     vendor: auto-detect
-  clusterName: ztp-spoke-02
-  clusterNamespace: ztp-spoke-02
+  clusterName: ztp-cluster-02
+  clusterNamespace: ztp-cluster-02
   iamPolicyController:
     enabled: true
   policyController:
